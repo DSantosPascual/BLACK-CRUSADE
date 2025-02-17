@@ -1,1 +1,22 @@
-dependencias del proyecto
+{
+  "name": "projectbreak2",
+  "version": "1.0.0",
+  "description": "Documentación del proyecto",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "16.4.7",
+    "express": "4.21.2",
+    "mongodb": "6.13.0",
+    "mongoose": "8.10.1",
+    "projectbreak2": "file:"
+  }
+}
