@@ -1,1 +1,0 @@
-//config de la base de datos (MongoDB Atlas)
