@@ -1,6 +1,6 @@
 //Creamos el CRUD
-
 const Product = require('../models/Products');
+const getProductCards = require('./html');
 
 const ProductControllers = {
     
@@ -13,7 +13,7 @@ const ProductControllers = {
             res.status(500).send({ Mensaje: "No se ha podido crear el producto"});
         }
     },
-    async getAllProducts (req, res) {
+    /*async getAllProducts (req, res) {
         try {
             const products = await Product.find();
             res.status(200).json({ Mensaje: "Todos los productos", products });
@@ -21,6 +21,12 @@ const ProductControllers = {
             console.error('Error al obterner todos los productos', error);
         }
         
+    },*/
+    async showProducts (req, res) {
+    const products = await Product.find();
+    const productCards = getProductCards(products);
+    const html = productCards;
+    res.send(html);
     },
     async getProductById (req, res) {
         try {
