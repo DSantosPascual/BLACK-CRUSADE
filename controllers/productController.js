@@ -35,11 +35,25 @@ const ProductControllers = {
         const html = allProducts;
         res.send(html);
     },
-    async showProductById (req, res) {
+    /*async showProductById (req, res) {
         const product = await Product.findById(req.params._Id);
         const producto = productId(product);
         res.send(producto);
-    },
+    },*/
+    async showProductById(req, res) {
+        try {
+          const product = await Product.findById(req.params.productId);
+          if (!product) {
+            return res.status(404).send("Producto no encontrado");
+          }
+          const html = productId(product);
+          res.send(html);
+        } catch (error) {
+          console.error(error);
+          res.status(500).send("Error al obtener el producto");
+        }
+      } ,    
+
     async getProductById (req, res) {
         try {
             const productId = await Product.findById(req.params._id);

@@ -9,7 +9,7 @@ function productForm() {
         <input type="text" id="nombre" name="nombre" required>
         
         <label for="description">Descripción:</label>
-        <textarea id="description" name="descripción" required></textarea>
+        <textarea id="description" name="descripcion" required></textarea>
         
         <label for="price">Precio:</label>
         <input type="number" id="price" name="precio" step="0.01" required>
@@ -35,13 +35,14 @@ let html = '';
     return html;
     };
 
-function productId(products) {
-
-let html = `
-<h2>${products.nombre}</h2>
-<h3>${products.precio}</h3>
-`;
-return html;
-}
+function productId(product) {
+    return `
+        <div class="product-detail">
+        <h2>${product.nombre}</h2>
+        <p>${product.descripcion}</p>
+        <p>Precio: ${product.precio}€</p>
+        </div>
+        `;
+        } 
 
 module.exports = { getProduct, productForm, productId };
