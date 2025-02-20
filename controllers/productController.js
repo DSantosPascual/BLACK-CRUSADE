@@ -40,7 +40,7 @@ const ProductControllers = {
         const producto = productId(product);
         res.send(producto);
     },*/
-    async showProductById(req, res) {
+    /*async showProductById(req, res) {
         try {
           const product = await Product.findById(req.params.productId);
           if (!product) {
@@ -52,8 +52,12 @@ const ProductControllers = {
           console.error(error);
           res.status(500).send("Error al obtener el producto");
         }
-      } ,    
-
+      },*/
+    async showProductById (req, res) {
+        const product = await Product.findById(req.params.productId);
+        const html = productId(product);
+        res.send(html);
+      },    
     async getProductById (req, res) {
         try {
             const productId = await Product.findById(req.params._id);
