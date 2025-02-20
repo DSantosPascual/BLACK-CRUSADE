@@ -1,11 +1,14 @@
 //Creamos el CRUD
 const Product = require('../models/Products');
-const getProductCards = require('./html');
+const {getProduct} = require('./html');
+const {productForm} = require('./html');
+const {productId} = require('./html');
 
 const ProductControllers = {
     
     async create (req, res) {
         try {
+            console.log("Datos recibidos en el backend:", req.body);
             const product = await Product.create(req.body);
             res.status(201).json({ Mensaje: "Producto creado correctamente", product });
         } catch (error) {
@@ -22,11 +25,20 @@ const ProductControllers = {
         }
         
     },*/
+    async showProductNew (req, res) {
+        const form = productForm();
+        res.send(form);
+        }, 
     async showProducts (req, res) {
-    const products = await Product.find();
-    const productCards = getProductCards(products);
-    const html = productCards;
-    res.send(html);
+        const products = await Product.find();
+        const allProducts = getProduct(products);
+        const html = allProducts;
+        res.send(html);
+    },
+    async showProductById (req, res) {
+        const product = await Product.findById(req.params._Id);
+        const producto = productId(product);
+        res.send(producto);
     },
     async getProductById (req, res) {
         try {

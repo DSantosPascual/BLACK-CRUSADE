@@ -4,7 +4,7 @@ const ProductSchema = new mongoose.Schema({
     nombre: String,   
     descripcion: String,
     categoria: { type: String, enum: ['Miniaturas', 'Pinturas', 'Transporte', 'Accesorios'] },
-    image: { type: String }, 
+    imagen: { type: String }, 
     precio: Number
 }, { timestamps: true });
 
