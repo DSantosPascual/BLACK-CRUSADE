@@ -48,8 +48,13 @@ let html = '';
                 if (event.target.classList.contains("delete-btn")) {
                     const productId = event.target.getAttribute("data-product-id");
                     if (confirm("¿Estás seguro de eliminar este producto?")) {
-                        await fetch(\`/dashboard/:productId/delete\${productId}\`, { method: "DELETE" });
-                        location.reload();
+                        const response = await fetch(\`/dashboard/\${productId}/delete\`, { method: "DELETE" });
+                        if (response.ok) {
+                            // Redirige inmediatamente al dashboard para evitar intentar acceder al producto eliminado
+                            window.location.href = "/dashboard"; 
+                        } else {
+                            alert("Error al eliminar el producto.");
+                        }
                     }
                 }
             });

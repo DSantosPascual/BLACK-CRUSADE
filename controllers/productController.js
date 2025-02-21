@@ -62,11 +62,11 @@ const ProductControllers = {
     },
     async deleteProductById(req, res) {
         try {
-            const product = await Product.findByIdAndDelete(req.params.id);
+            const product = await Product.findByIdAndDelete(req.params.productId);
             if (!product) {
             return res.status(404).send("Producto no encontrado");
             }
-            res.redirect("/dashboard"); 
+            res.json({ success: true, redirect: "/dashboard" });
         } catch (error) {
             console.error(error);
             res.status(500).send("Error al eliminar el producto");
