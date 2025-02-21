@@ -59,6 +59,18 @@ const ProductControllers = {
         } catch (error) {
             console.error('Error al eliminar el producto', error);
         }
+    },
+    async deleteProductById(req, res) {
+        try {
+            const product = await Product.findByIdAndDelete(req.params.id);
+            if (!product) {
+            return res.status(404).send("Producto no encontrado");
+            }
+            res.redirect("/dashboard"); 
+        } catch (error) {
+            console.error(error);
+            res.status(500).send("Error al eliminar el producto");
+        }
     }
 }
 

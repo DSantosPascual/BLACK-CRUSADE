@@ -12,6 +12,8 @@ router.get('/dashboard', ProductControllers.showProducts);
 router.get('/dashboard/new', ProductControllers.showProductNew);
 router.post('/dashboard', ProductControllers.createProduct);
 router.get('/products/:productId', ProductControllers.showProductById);
+router.delete('/dashboard/:productId/delete', ProductControllers.deleteProductById);
+
 
 
 

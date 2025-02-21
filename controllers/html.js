@@ -34,8 +34,30 @@ let html = '';
     }
     return html;
     };
+    function productId(product) {
+        return `
+            <div class="product-detail">
+                <h2>${product.nombre}</h2>
+                <p>${product.descripcion}</p>
+                <p>Precio: ${product.precio}€</p>
+                <button class="edit-btn">EDITAR</button>
+                <button class="delete-btn" data-product-id="${product._id}">ELIMINAR</button>
+            </div>
+            <script>
+            document.addEventListener("click", async function (event) {
+                if (event.target.classList.contains("delete-btn")) {
+                    const productId = event.target.getAttribute("data-product-id");
+                    if (confirm("¿Estás seguro de eliminar este producto?")) {
+                        await fetch(\`/dashboard/:productId/delete\${productId}\`, { method: "DELETE" });
+                        location.reload();
+                    }
+                }
+            });
+            </script>
+        `;
+    }
 
-function productId(product) {
+/*function productId(product) {
     return `
         <div class="product-detail">
         <h2>${product.nombre}</h2>
@@ -58,5 +80,5 @@ function productId(product) {
         </script>
         `;
         } 
-
+*/
 module.exports = { getProduct, productForm, productId };
