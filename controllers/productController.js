@@ -3,6 +3,7 @@ const Product = require('../models/Products');
 const {getProduct} = require('./html');
 const {productForm} = require('./html');
 const {productId} = require('./html');
+const {editProduct} = require('./html');
 
 const ProductControllers = {
     
@@ -43,7 +44,18 @@ const ProductControllers = {
         const product = await Product.findById(req.params.productId);
         const html = productId(product);
         res.send(html);
-        },    
+        },
+    async showEditProduct (req, res) {
+        const product = await Product.findById(req.params.productId)
+        const html = editProduct(product)
+        res.send(html)
+        },
+    async updateProduct (req, res) {
+        const {productId} = req.params;
+        const { nombre, descripcion, precio } = req.body;
+        const product = await Product.findByIdAndUpdate(productId, {nombre, descripcion, precio}, {new:true});
+        res.redirect('/dashboard');
+    },            
     async getProductById (req, res) {
         try {
             const productId = await Product.findById(req.params._id);

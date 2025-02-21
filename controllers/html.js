@@ -40,7 +40,7 @@ let html = '';
                 <h2>${product.nombre}</h2>
                 <p>${product.descripcion}</p>
                 <p>Precio: ${product.precio}€</p>
-                <button class="edit-btn">EDITAR</button>
+                <button class="edit-btn" onclick="window.location.href = '/dashboard/${product._id}/edit'">EDITAR</button>
                 <button class="delete-btn" data-product-id="${product._id}">ELIMINAR</button>
             </div>
             <script>
@@ -60,30 +60,25 @@ let html = '';
             });
             </script>
         `;
-    }
+    };
+    function editProduct(product) {
+        return `
+        <form action="/dashboard/${product._id}" method="POST">  
+        <label for="nombre">Nombre del producto:</label>
+        <input type="text" id="nombre" name="nombre" value='${product.nombre}' required>
+        
+        <label for="description">Descripción:</label>
+        <textarea id="description" name="descripcion" required></textarea>
+        
+        <label for="price">Precio:</label>
+        <input type="number" id="price" name="precio" step="0.01" required>
+        
+        <label for="image">Imagen:</label>
+        <input type="file" id="image" name="imagen" accept="image/*" required>
+        
+        <button type="submit">ACTUALIZAR</button>
+        </form>
+    `;
+    };
 
-/*function productId(product) {
-    return `
-        <div class="product-detail">
-        <h2>${product.nombre}</h2>
-        <p>${product.descripcion}</p>
-        <p>Precio: ${product.precio}€</p>
-        <button class="edit-btn">EDITAR</button>
-        <button class="delete-btn" data-product-id="${product._id}">ELIMINAR</button>
-        </div>
-        <script>
-        document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll(".delete-btn").forEach(button => {
-            button.addEventListener("click", 
-            async function () {
-            await fetch(/products/id/${this.getAttribute("data-product-id")}, 
-            { method: "DELETE" });
-            location.reload();
-            });
-        });
-        });
-        </script>
-        `;
-        } 
-*/
-module.exports = { getProduct, productForm, productId };
+module.exports = { getProduct, productForm, productId, editProduct };

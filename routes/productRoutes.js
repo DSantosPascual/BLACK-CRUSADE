@@ -13,6 +13,8 @@ router.get('/dashboard/new', ProductControllers.showProductNew);
 router.post('/dashboard', ProductControllers.createProduct);
 router.get('/products/:productId', ProductControllers.showProductById);
 router.delete('/dashboard/:productId/delete', ProductControllers.deleteProductById);
+router.get('/dashboard/:productId/edit', ProductControllers.showEditProduct);
+router.post('/dashboard/:productId', ProductControllers.updateProduct);
 
 
 
