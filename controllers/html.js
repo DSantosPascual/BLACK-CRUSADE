@@ -44,6 +44,18 @@ function productId(product) {
         <button class="edit-btn">EDITAR</button>
         <button class="delete-btn" data-product-id="${product._id}">ELIMINAR</button>
         </div>
+        <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".delete-btn").forEach(button => {
+            button.addEventListener("click", 
+            async function () {
+            await fetch(/products/id/${this.getAttribute("data-product-id")}, 
+            { method: "DELETE" });
+            location.reload();
+            });
+        });
+        });
+        </script>
         `;
         } 
 
