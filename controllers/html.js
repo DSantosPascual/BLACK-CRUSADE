@@ -4,7 +4,7 @@ const { products } = require('../models/Products');
 function productForm() {
     
     return `
-        <form action="/products/new" method="POST">  
+        <form action="/dashboard" method="POST">  
         <label for="nombre">Nombre del producto:</label>
         <input type="text" id="nombre" name="nombre" required>
         
@@ -41,6 +41,8 @@ function productId(product) {
         <h2>${product.nombre}</h2>
         <p>${product.descripcion}</p>
         <p>Precio: ${product.precio}€</p>
+        <button class="edit-btn">EDITAR</button>
+        <button class="delete-btn" data-product-id="${product._id}">ELIMINAR</button>
         </div>
         `;
         } 

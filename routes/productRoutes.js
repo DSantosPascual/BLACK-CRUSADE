@@ -8,11 +8,22 @@ const Products = require('../models/Products');
 router.post('/create', ProductControllers.create); 
 router.get('/', ProductControllers.getProductById);
 router.delete('/id/:_id', ProductControllers.deleteProduct);
-router.get('/products', ProductControllers.showProducts);
-router.get('/products/new', ProductControllers.showProductNew);
-router.post('/products/new', ProductControllers.create);
+router.get('/dashboard', ProductControllers.showProducts);
+router.get('/dashboard/new', ProductControllers.showProductNew);
+router.post('/dashboard', ProductControllers.createProduct);
 router.get('/products/:productId', ProductControllers.showProductById);
 
 
 
 module.exports = router;
+
+
+/*
+router.get('/', productController.showProducts);
+router.get('/:productId', productController.showProductById);
+
+router.post('/dashboard', productController.createProduct);
+
+router.put('/dashboard/:productId', productController.updateProduct);
+router.delete('/dashboard/:productId/delete', productController.deleteProduct);
+*/

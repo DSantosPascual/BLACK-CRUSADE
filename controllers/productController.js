@@ -35,6 +35,10 @@ const ProductControllers = {
         const html = allProducts;
         res.send(html);
     },
+    async createProduct  (req, res)  {
+        const product = await Product.create({...req.body})
+        res.redirect('/dashboard');
+    },
     async showProductById (req, res) {
         const product = await Product.findById(req.params.productId);
         const html = productId(product);
