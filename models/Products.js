@@ -1,7 +1,7 @@
 //Configuramos el Schema de los atributos de nuestros productos
 const mongoose = require('mongoose');
 const ProductSchema = new mongoose.Schema({
-    nombre: String,   
+    nombre: {type: String, required: true},   
     descripcion: String,
     categoria: { type: String, enum: ['Miniaturas', 'Pinturas', 'Transporte', 'Accesorios'] },
     imagen: { type: String }, 

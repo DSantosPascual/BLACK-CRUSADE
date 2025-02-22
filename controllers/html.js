@@ -4,7 +4,7 @@ const { products } = require('../models/Products');
 function productForm() {
     
     return `
-        <form action="/dashboard" method="POST">  
+        <form action="/dashboard" method="POST" id="createProductForm">  
         <label for="nombre">Nombre del producto:</label>
         <input type="text" id="nombre" name="nombre" required>
         
@@ -19,6 +19,36 @@ function productForm() {
         
         <button type="submit">Crear Producto</button>
         </form>
+        <script>
+document.getElementById("createProductForm").addEventListener("submit", async function(event) {
+    event.preventDefault(); // Evita la recarga de la página
+
+    const formData = new FormData(this);
+    const file = formData.get("imagen");
+
+    if (file && file.size > 0) {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = async function () {
+            formData.set("imagen", reader.result); // Convertimos la imagen a Base64
+
+            const response = await fetch("/dashboard", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(Object.fromEntries(formData))
+            });
+
+            if (response.ok) {
+                window.location.href = "/dashboard";
+            } else {
+                alert("Error al crear el producto.");
+            }
+        };
+    } else {
+        alert("Debes subir una imagen.");
+    }
+});
+</script>
     `;   
 };
 
@@ -40,6 +70,7 @@ let html = '';
                 <h2>${product.nombre}</h2>
                 <p>${product.descripcion}</p>
                 <p>Precio: ${product.precio}€</p>
+                <img src="${product.imagen}" width="200">
                 <button class="edit-btn" onclick="window.location.href = '/dashboard/${product._id}/edit'">EDITAR</button>
                 <button class="delete-btn" data-product-id="${product._id}">ELIMINAR</button>
             </div>
@@ -60,7 +91,7 @@ let html = '';
             });
             </script>
         `;
-    };
+    }
     function editProduct(product) {
         return `
         <form action="/dashboard/${product._id}" method="POST">  
