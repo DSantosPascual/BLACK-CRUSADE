@@ -78,7 +78,7 @@ let html = '';
                 <p>${product.descripcion}</p>
                 <p><strong>Precio:</strong> ${product.precio}€</p>
                 <p><strong>Categoría:</strong> ${product.categoria}</p>
-                <img src="${product.imagen}" width="200">
+                <img src="${product.imagen}" width="200"> <br/>
                 <button class="edit-btn" onclick="window.location.href = '/dashboard/${product._id}/edit'">EDITAR</button>
                 <button class="delete-btn" data-product-id="${product._id}">ELIMINAR</button>
             </div>
@@ -131,5 +131,6 @@ let html = '';
         </form>
     `;
     };
+
 
 module.exports = { getProduct, productForm, productId, editProduct };

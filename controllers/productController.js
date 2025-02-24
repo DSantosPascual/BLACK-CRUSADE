@@ -3,6 +3,8 @@ const Product = require('../models/Products');
 const {getProduct, productForm, productId, editProduct } = require('./html');
 const fs = require('fs');
 const path = require('path');
+const {headerTemplate} = require('../controllers/headfooter');
+const {footerTemplate} = require('../controllers/headfooter');
 
 const ProductControllers = {
     
@@ -15,7 +17,7 @@ const ProductControllers = {
             res.status(500).send({ Mensaje: "No se ha podido crear el producto"});
         }
     },
-    /*async getAllProducts (req, res) {
+    async getAllProducts (req, res) {
         try {
             const products = await Product.find();
             res.status(200).json({ Mensaje: "Todos los productos", products });
@@ -23,7 +25,7 @@ const ProductControllers = {
             console.error('Error al obterner todos los productos', error);
         }
         
-    },*/
+    },
     async showProductNew (req, res) {
         const form = productForm();
         res.send(form);
@@ -31,7 +33,9 @@ const ProductControllers = {
     async showProducts (req, res) {
         const products = await Product.find();
         const allProducts = getProduct(products);
-        const html = allProducts;
+        const header = headerTemplate();
+        const footer = footerTemplate();
+        const html = header + allProducts + footer;
         res.send(html);
     },
     /*async createProduct  (req, res)  {
@@ -77,12 +81,16 @@ const ProductControllers = {
     },
     async showProductById (req, res) {
         const product = await Product.findById(req.params.productId);
-        const html = productId(product);
+        const header = headerTemplate();
+        const footer = footerTemplate();
+        const html = header + productId(product) + footer;
         res.send(html);
         },
     async showEditProduct (req, res) {
-        const product = await Product.findById(req.params.productId)
-        const html = editProduct(product)
+        const product = await Product.findById(req.params.productId);
+        const header = headerTemplate();
+        const footer = footerTemplate();
+        const html = header + editProduct(product) + footer;
         res.send(html)
         },
     async updateProduct (req, res) {

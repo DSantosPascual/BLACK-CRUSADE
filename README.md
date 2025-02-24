@@ -1,6 +1,6 @@
-📁···**ProjectBreak2**···📁                                                                                                    
+📁···**BLACK CRUSADE**···📁                                                                                                    
 📖**Descripción**
-ProjectBreak2 es una aplicación web diseñada para gestionar y mostrar un catálogo detallado de miniaturas de Warhammer. 
+BLACK CRUSADE es una aplicación web diseñada para gestionar y mostrar un catálogo detallado de miniaturas de Warhammer. 
 Permite a los usuarios explorar, buscar y obtener información sobre cada miniatura, incluyendo imágenes, descripciones y otros datos relevantes.
 La aplicación está construida con tecnologías modernas, garantizando una experiencia de usuario fluida y eficiente.
 
