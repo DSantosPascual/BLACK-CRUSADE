@@ -87,8 +87,8 @@ const ProductControllers = {
         },
     async updateProduct (req, res) {
         const {productId} = req.params;
-        const { nombre, descripcion, precio } = req.body;
-        const product = await Product.findByIdAndUpdate(productId, {nombre, descripcion, precio}, {new:true});
+        const { nombre, descripcion, precio, categoria } = req.body;
+        const product = await Product.findByIdAndUpdate(productId, {nombre, descripcion, precio, categoria}, {new:true});
         res.redirect('/dashboard');
     },            
     async getProductById (req, res) {

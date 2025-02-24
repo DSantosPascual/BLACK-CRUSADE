@@ -107,21 +107,25 @@ let html = '';
         <input type="text" id="nombre" name="nombre" value='${product.nombre}' required>
         
         <label for="description">Descripción:</label>
-        <textarea id="description" name="descripcion" required></textarea>
+        <textarea id="description" name="descripcion" required>${product.descripcion}</textarea>
         
         <label for="price">Precio:</label>
-        <input type="number" id="price" name="precio" step="0.01" required>
+        <input type="number" id="price" name="precio" step="0.01" value='${product.precio}' required>
 
-        <laber for="categoria">Categorías:</label>
-                <select id="categoria" name="categoria">
-                <option value="Miniaturas" ${product.categoria === "miniatura" ? "selected" : ""}>Miniatura</option>
-                <option value="Pinturas" ${product.categoria === "pintura" ? "selected" : ""}>Pintura</option>
-                <option value="Transporte" ${product.categoria === "transporte" ? "selected" : ""}>Transporte</option>
-                <option value="Accesorios" ${product.categoria === "accesorio" ? "selected" : ""}>Accesorio</option>
-            </select>
+        <label for="categoria">Categorías:</label>
+        <select id="categoria" name="categoria">
+            <option value="Miniaturas" ${product.categoria === "Miniaturas" ? "selected" : ""}>Miniatura</option>
+            <option value="Pinturas" ${product.categoria === "Pinturas" ? "selected" : ""}>Pintura</option>
+            <option value="Transporte" ${product.categoria === "Transporte" ? "selected" : ""}>Transporte</option>
+            <option value="Accesorios" ${product.categoria === "Accesorios" ? "selected" : ""}>Accesorio</option>
+        </select>
+
         
-        <label for="image">Imagen:</label>
-        <input type="file" id="image" name="imagen" accept="image/*" required>
+        <label for="image">Imagen actual:</label>
+        <img src="${product.imagen}" alt="Imagen del producto" width="100">
+        <label for="image">Actualizar imagen:</label>
+        <input type="file" id="image" name="imagen" accept="image/*">
+
         
         <button type="submit">ACTUALIZAR</button> 
         </form>
