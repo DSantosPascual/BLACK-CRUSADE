@@ -1,8 +1,9 @@
 //Script para cambiar imágenes de fondo dinámicamente
 const fondos = [
-    '/images/fondo1.jpg',
-    '/images/fondo2.jpg',
-    '/images/fondo3.jpg'
+    './scripts/imagenesFondo/img1.jpg',
+    './scripts/imagenesFondo/img2.jpg',
+    './scripts/imagenesFondo/img3.jpg',
+    './scripts/imagenesFondo/img4.jpg'
 ];
 let indiceFondo = 0;
 
