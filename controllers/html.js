@@ -13,6 +13,14 @@ function productForm() {
         
         <label for="price">Precio:</label>
         <input type="number" id="price" name="precio" step="0.01" required>
+
+        <laber for="categoria">Categorías:</label>
+                <select id="categoria" name="categoria">
+                <option value="Miniaturas" >Miniatura</option>
+                <option value="Pinturas" >Pintura</option>
+                <option value="Transporte" >Transporte</option>
+                <option value="Accesorios" >Accesorio</option>
+            </select>
         
         <label for="image">Imagen:</label>
         <input type="file" id="image" name="imagen" accept="image/*" required>
@@ -20,17 +28,17 @@ function productForm() {
         <button type="submit">Crear Producto</button>
         </form>
         <script>
-document.getElementById("createProductForm").addEventListener("submit", async function(event) {
-    event.preventDefault(); // Evita la recarga de la página
+        document.getElementById("createProductForm").addEventListener("submit", async function(event) {
+        event.preventDefault();
 
-    const formData = new FormData(this);
-    const file = formData.get("imagen");
+        const formData = new FormData(this);
+        const file = formData.get("imagen");
 
-    if (file && file.size > 0) {
+        if (file && file.size > 0) {
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = async function () {
-            formData.set("imagen", reader.result); // Convertimos la imagen a Base64
+            formData.set("imagen", reader.result); 
 
             const response = await fetch("/dashboard", {
                 method: "POST",
@@ -44,12 +52,11 @@ document.getElementById("createProductForm").addEventListener("submit", async fu
                 alert("Error al crear el producto.");
             }
         };
-    } else {
+        } else {
         alert("Debes subir una imagen.");
-    }
-});
-</script>
-    `;   
+        }
+        });
+        </script>`;   
 };
 
 function getProduct(products) {
@@ -69,7 +76,8 @@ let html = '';
             <div class="product-detail">
                 <h2>${product.nombre}</h2>
                 <p>${product.descripcion}</p>
-                <p>Precio: ${product.precio}€</p>
+                <p><strong>Precio:</strong> ${product.precio}€</p>
+                <p><strong>Categoría:</strong> ${product.categoria}</p>
                 <img src="${product.imagen}" width="200">
                 <button class="edit-btn" onclick="window.location.href = '/dashboard/${product._id}/edit'">EDITAR</button>
                 <button class="delete-btn" data-product-id="${product._id}">ELIMINAR</button>
@@ -103,11 +111,19 @@ let html = '';
         
         <label for="price">Precio:</label>
         <input type="number" id="price" name="precio" step="0.01" required>
+
+        <laber for="categoria">Categorías:</label>
+                <select id="categoria" name="categoria">
+                <option value="Miniaturas" ${product.categoria === "miniatura" ? "selected" : ""}>Miniatura</option>
+                <option value="Pinturas" ${product.categoria === "pintura" ? "selected" : ""}>Pintura</option>
+                <option value="Transporte" ${product.categoria === "transporte" ? "selected" : ""}>Transporte</option>
+                <option value="Accesorios" ${product.categoria === "accesorio" ? "selected" : ""}>Accesorio</option>
+            </select>
         
         <label for="image">Imagen:</label>
         <input type="file" id="image" name="imagen" accept="image/*" required>
         
-        <button type="submit">ACTUALIZAR</button>
+        <button type="submit">ACTUALIZAR</button> 
         </form>
     `;
     };

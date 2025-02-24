@@ -1,4 +1,4 @@
-📁···**ProjectBreak2**···📁
+📁···**ProjectBreak2**···📁                                                                                                    
 📖**Descripción**
 ProjectBreak2 es una aplicación web diseñada para gestionar y mostrar un catálogo detallado de miniaturas de Warhammer. 
 Permite a los usuarios explorar, buscar y obtener información sobre cada miniatura, incluyendo imágenes, descripciones y otros datos relevantes.
@@ -25,6 +25,10 @@ dotenv ➡️ Gestión de variables de entorno.
 🛠Herramientas Adicionales:
 npm ➡️ Manejador de paquetes para Node.js.
 Git & GitHub ➡️ Control de versiones y colaboración en el desarrollo.
+Trello ➡️ Permite organizar tareas de forma visual, asignar responsables, establecer fechas de vencimiento y colaborar en equipo en tiempo real.
+Slack ➡️ Facilita la colaboración en tiempo real, la integración con otras herramientas y la gestión eficiente de proyectos mediante chats, menciones y notificaciones.
+Jitsi ➡️ Plataforma de videoconferencias de código abierto que permite realizar reuniones en línea sin necesidad de registrarse. 
+
 
 📖**Uso de la API**
 La API cuenta con los siguientes endpoints:

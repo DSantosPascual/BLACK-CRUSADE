@@ -40,39 +40,32 @@ const ProductControllers = {
     },*/
     async createProduct(req, res) {
         try {
-            const { nombre, descripcion, precio, imagen } = req.body;
+            const { nombre, descripcion, precio, imagen, categoria } = req.body;
     
-            let imagePath = ""; // Variable donde se guardará la ruta de la imagen
+            let imagePath = ""; 
     
             if (imagen?.startsWith("data:image")) {
                 try {
-                    // Extraer la extensión de la imagen (ej: jpg, png)
                     const match = imagen.match(/^data:image\/(\w+);base64,/);
-                    const ext = match ? match[1] : "png"; // Si no encuentra extensión, usa PNG por defecto
-    
-                    // Obtener los datos en Base64
+                    const ext = match ? match[1] : "png"; 
                     const base64Data = imagen.replace(/^data:image\/\w+;base64,/, "");
-    
-                    // Definir nombre del archivo con la fecha actual
                     const fileName = `${Date.now()}.${ext}`;
                     const filePath = path.resolve(__dirname, "../public/images", fileName);
     
-                    // Guardar la imagen en el servidor
                     fs.writeFileSync(filePath, Buffer.from(base64Data, "base64"));
     
-                    // Ruta accesible de la imagen
                     imagePath = `/images/${fileName}`;
                 } catch (error) {
                     console.error("Error guardando la imagen:", error);
                 }
             }
     
-            // Crear el producto en la base de datos
             const newProduct = new Product({
                 nombre,
                 descripcion,
                 precio,
-                imagen: imagePath // Guardar la ruta de la imagen
+                categoria,
+                imagen: imagePath 
             });
     
             await newProduct.save();
