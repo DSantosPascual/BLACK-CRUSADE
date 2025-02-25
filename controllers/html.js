@@ -4,17 +4,16 @@ const { products } = require('../models/Products');
 function productForm() {
     
     return `
-        <form action="/dashboard" method="POST" id="createProductForm">  
+        <form action="/dashboard" method="POST" id="createProductForm" class="form-container">  
         <label for="nombre">Nombre del producto:</label>
         <input type="text" id="nombre" name="nombre" required>
-        
         <label for="description">Descripción:</label>
         <textarea id="description" name="descripcion" required></textarea>
         
         <label for="price">Precio:</label>
         <input type="number" id="price" name="precio" step="0.01" required>
 
-        <laber for="categoria">Categorías:</label>
+        <label for="categoria">Categorías:</label>
                 <select id="categoria" name="categoria">
                 <option value="Miniaturas" >Miniatura</option>
                 <option value="Pinturas" >Pintura</option>
