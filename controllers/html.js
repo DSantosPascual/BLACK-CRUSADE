@@ -63,12 +63,10 @@ function getProduct(products) {
 let html = '';
     for (let product of products) {
         html += `
-        <div id="background-container">
             <div class="product">
                 <h2>${product.nombre}</h2>
                 <a href="/products/${product._id}">Ver detalle</a>
             </div>
-        </div>
         `;
     }
     return html;

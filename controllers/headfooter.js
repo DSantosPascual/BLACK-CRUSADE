@@ -9,6 +9,7 @@ const headerTemplate = () => {
     <title>BLACK CRUSADE</title>
 </head>
 <body>
+    <div id="background-container">
     <header class="header"><h1><strong>BLACK CRUSADE</strong></h1></header>
     <div class="homeBtn">
         <button onclick="goToHome()">INICIO</button>
@@ -24,6 +25,7 @@ const headerTemplate = () => {
 
 const footerTemplate = () => {
     return `
+    </div>
         <footer>
             <h3>2025</h3>
             <p>👨‍💻 Adrián Garrido Luengo 👨‍💻 Adrián Pajuelo Momboisse 👨‍💻 Dámaso Adrián Santos Pascual</p>
