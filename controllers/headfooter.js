@@ -9,19 +9,16 @@ const headerTemplate = () => {
     <title>BLACK CRUSADE</title>
 </head>
 <body>
-    <div id="background-container"></div>
     <header class="header"><h1><strong>BLACK CRUSADE</strong></h1></header>
     <div class="homeBtn">
         <button onclick="goToHome()">INICIO</button>
     </div>
+    <script src="/scripts/imagenesFondo.js"></script>
     <script>
         function goToHome() {
             window.location.href = '/dashboard';
         }
     </script>
-    <script src="/js/background.js"></script>
-</body>
-</html>
     `;
 };
 
@@ -31,6 +28,8 @@ const footerTemplate = () => {
             <h3>2025</h3>
             <p>👨‍💻 Adrián Garrido Luengo 👨‍💻 Adrián Pajuelo Momboisse 👨‍💻 Dámaso Adrián Santos Pascual</p>
         </footer>
+    </body>
+    </html>
     `;
 };
 

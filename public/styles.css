@@ -5,11 +5,24 @@ html, body {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    color: #f1f1f1;
+    margin: 0;
+    padding: 0;
     background-size: cover;
     background-position: center;
-    transition: background-image 1s ease;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+}
+
+#background-container {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../public/imagenesFondo/img1.jpg");
 }
 
 .header {
