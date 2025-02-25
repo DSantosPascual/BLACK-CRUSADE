@@ -73,7 +73,7 @@ let html = '';
     };
     function productId(product) {
         return `
-            <div class="product-detail">
+            <div class="product">
                 <h2>${product.nombre}</h2>
                 <p>${product.descripcion}</p>
                 <p><strong>Precio:</strong> ${product.precio}€</p>
@@ -103,6 +103,7 @@ let html = '';
     function editProduct(product) {
         return `
         <form action="/dashboard/${product._id}" method="POST">  
+        <div class="product">
         <label for="nombre">Nombre del producto:</label>
         <input type="text" id="nombre" name="nombre" value='${product.nombre}' required>
         
@@ -128,6 +129,7 @@ let html = '';
 
         
         <button type="submit">ACTUALIZAR</button> 
+        </div>
         </form>
     `;
     };

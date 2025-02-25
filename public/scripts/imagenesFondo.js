@@ -13,8 +13,20 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("background-container").style.backgroundImage = `url(${fondos[fondoAleatorio]})`;
         document.getElementById("background-container").style.backgroundSize = "cover";
         document.getElementById("background-container").style.backgroundPosition = "center";
+        
+
+
     }
 
     cambiarFondo(); 
-    setInterval(cambiarFondo, 5000); 
+    setInterval(cambiarFondo, 10000); 
 });
+
+
+
+/*
+background-image: url("../public/imagenesFondo/img1.jpg");
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)); 
+    filter: blur(3px);
+    z-index: -1;
+    */

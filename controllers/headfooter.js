@@ -10,13 +10,14 @@ const headerTemplate = () => {
 </head>
 <body>
     <div id="background-container">
+    <div id="contenido">
     <header class="header"><h1><strong>BLACK CRUSADE</strong></h1></header>
-    <div class="homeBtn">
-        <button onclick="goToHome()">INICIO</button>
+    <div class="botonInicio">
+        <button class="botonInicio" onclick="irInicio()">INICIO</button>
     </div>
     <script src="/scripts/imagenesFondo.js"></script>
     <script>
-        function goToHome() {
+        function irInicio() {
             window.location.href = '/dashboard';
         }
     </script>
@@ -25,6 +26,7 @@ const headerTemplate = () => {
 
 const footerTemplate = () => {
     return `
+    </div>
     </div>
         <footer>
             <h3>2025</h3>

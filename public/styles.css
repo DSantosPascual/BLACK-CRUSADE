@@ -7,6 +7,7 @@ html, body {
 body {
     margin: 0;
     padding: 0;
+    background-color: #333;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -15,31 +16,28 @@ body {
 }
 
 #background-container {
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100vw;
     height: 100vh;
+    background-image: url("/imagenesFondo/img1.jpg"); 
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    background-image: url("../public/imagenesFondo/img1.jpg");
 }
 
-.header {
-    background-color: #333;
-    padding: 20px;
-    text-align: center;
-    border-bottom: 3px solid #d4af37;
+#background-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);  
+    z-index: 0;  
 }
 
-header h1 {
-    font-size: 3em;
-    color: #d4af37;
-    text-transform: uppercase;
-    margin: 0;
-}
-
-.homeBtn button {
+.botonInicio button {
+    margin-top: 20px;
+    margin-left: 70px;
     background-color: #d4af37;
     color: #1d1f20;
     font-size: 1.2em;
@@ -47,10 +45,41 @@ header h1 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 2;
+    position: relative;
+    
+}
+.header {
+    position: relative;
+    z-index: 1;  
+    color: white;  
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #d4af37;
 }
 
-.homeBtn button:hover {
+.product {
+    position: relative;
+    z-index: 1; 
+    color:#f0a500;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 3em;
+    color: #d4af37;
+    text-transform: uppercase;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7)
+}
+
+.botonInicio button:hover {
     background-color: #f0a500;
     transform: scale(1.1);
 }
@@ -66,11 +95,13 @@ footer {
 footer h3 {
     color: #d4af37;
     margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 footer p {
     color: #aaa;
     margin: 5px 0 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 @media (max-width: 600px) {
