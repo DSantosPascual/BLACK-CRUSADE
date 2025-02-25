@@ -19,14 +19,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     cambiarFondo(); 
-    setInterval(cambiarFondo, 10000); 
+    setInterval(cambiarFondo, 8000); 
 });
-
-
-
-/*
-background-image: url("../public/imagenesFondo/img1.jpg");
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)); 
-    filter: blur(3px);
-    z-index: -1;
-    */

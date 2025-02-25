@@ -18,7 +18,7 @@ body {
 #background-container {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    height: 150vh;
     background-image: url("/imagenesFondo/img1.jpg"); 
     background-size: cover;
     background-position: center;
@@ -84,6 +84,21 @@ header h1 {
     transform: scale(1.1);
 }
 
+a {
+    text-decoration: none;
+    color:#ce4711
+
+}
+
+a:hover {
+    transform: scale(1.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+a:visited {
+    color: rgb(67, 18, 199)
+}
+
 footer {
     background-color: #333;
     padding: 15px;
@@ -99,7 +114,7 @@ footer h3 {
 }
 
 footer p {
-    color: #aaa;
+    color: #d4af37;
     margin: 5px 0 0;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
