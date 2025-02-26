@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         '/imagenesFondo/img4.jpg'
     ];
 
-    function cambiarFondo() {
+function cambiarFondo() {
         const fondoAleatorio = Math.floor(Math.random() * fondos.length);
         console.log("Cambiando fondo a:", fondos[fondoAleatorio]); 
         document.getElementById("background-container").style.backgroundImage = `url(${fondos[fondoAleatorio]})`;

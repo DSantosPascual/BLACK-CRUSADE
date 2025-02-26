@@ -28,7 +28,10 @@ const ProductControllers = {
     },
     async showProductNew (req, res) {
         const form = productForm();
-        res.send(form);
+        const header = headerTemplate();
+        const footer = footerTemplate();
+        const html = header + form + footer;
+        res.send(html);
         }, 
     async showProducts (req, res) {
         const products = await Product.find();

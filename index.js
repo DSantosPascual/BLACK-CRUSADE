@@ -6,7 +6,7 @@ const dbConnection = require('./config/config');
 const path = require('path');
 const admin = require('firebase-admin');
 const serviceAccount = require ('./config/firebase.json')
-//const serviceAccount = require ('./config/firebase')
+// const serviceAccount = require ('./config/firebase')
 require('dotenv').config();
 
 admin.initializeApp({

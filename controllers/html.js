@@ -4,7 +4,8 @@ const { products } = require('../models/Products');
 function productForm() {
     
     return `
-        <form action="/dashboard" method="POST" id="createProductForm" class="form-container">  
+        <form action="/dashboard" method="POST" id="createProductForm" class="form-container">
+        <div class="product">  
         <label for="nombre">Nombre del producto:</label>
         <input type="text" id="nombre" name="nombre" required>
         <label for="description">Descripción:</label>
@@ -25,6 +26,7 @@ function productForm() {
         <input type="file" id="image" name="imagen" accept="image/*" required>
         
         <button type="submit">Crear Producto</button>
+        </div>
         </form>
         <script>
         document.getElementById("createProductForm").addEventListener("submit", async function(event) {
@@ -73,13 +75,19 @@ let html = '';
     function productId(product) {
         return `
             <div class="product">
-                <h2>${product.nombre}</h2>
-                <p>${product.descripcion}</p>
-                <p><strong>Precio:</strong> ${product.precio}€</p>
-                <p><strong>Categoría:</strong> ${product.categoria}</p>
-                <img src="${product.imagen}" width="200"> <br/>
-                <button class="edit-btn" onclick="window.location.href = '/dashboard/${product._id}/edit'">EDITAR</button>
-                <button class="delete-btn" data-product-id="${product._id}">ELIMINAR</button>
+              <div class="imagen">
+                <img class="imagenProducto" src="${product.imagen}" width="200"> <br/>
+              </div>
+              <div class="infoProduct">
+                    <h2>${product.nombre}</h2>
+                    <p>${product.descripcion}</p>
+                    <p><strong>Precio:</strong> ${product.precio}€</p>
+                    <p><strong>Categoría:</strong> ${product.categoria}</p>
+                  <div class="botones">
+                    <button class="edit-btn" onclick="window.location.href = '/dashboard/${product._id}/edit'">EDITAR</button>
+                    <button class="delete-btn" data-product-id="${product._id}">ELIMINAR</button>
+                  </div>
+              </div>
             </div>
             <script>
             document.addEventListener("click", async function (event) {
@@ -127,7 +135,7 @@ let html = '';
         <input type="file" id="image" name="imagen" accept="image/*">
 
         
-        <button type="submit">ACTUALIZAR</button> 
+        <button class="botonInicio" type="submit">ACTUALIZAR</button> 
         </div>
         </form>
     `;
