@@ -1,1 +1,0 @@
-//Script para cambiar imágenes de fondo dinámicamente
