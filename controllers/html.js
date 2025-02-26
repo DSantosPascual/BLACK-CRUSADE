@@ -109,7 +109,7 @@ let html = '';
     }
     function editProduct(product) {
         return `
-        <form action="/dashboard/${product._id}" method="POST">  
+        <form action="/dashboard/${product._id}" method="POST" class="form-container">  
         <div class="product">
         <label for="nombre">Nombre del producto:</label>
         <input type="text" id="nombre" name="nombre" value='${product.nombre}' required>

@@ -178,14 +178,14 @@ header h1 {
 
 .cart-icon {
     display: flex;
-    align-items: center; /* Centra verticalmente el ícono */
-    margin-left: 10px; /* Ajusta el margen según sea necesario */
+    align-items: center; 
+    margin-left: 10px; 
 }
 
 .cart-icon img {
-    width: 24px; /* Ajusta el tamaño según sea necesario */
+    width: 24px; 
     height: 24px;
-    vertical-align: middle; /* Alinea verticalmente con el texto */
+    vertical-align: middle; 
 }
 
 a {
@@ -217,6 +217,46 @@ footer p {
     color: #d4af37;
     margin: 5px 0 0;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Cambiar el color de fondo y el color del texto de los textarea */
+.form-container textarea {
+    background-color: #222; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    border: 1px solid #d4af37; /* Borde dorado */
+    padding: 8px;
+    font-size: 1em;
+}
+
+/* Cambiar el color del placeholder */
+.form-container textarea::placeholder,
+.form-container input::placeholder {
+    color: #d4af37; /* Color dorado para el placeholder */
+    opacity: 1; /* Asegura que el color se aplique correctamente */
+}
+
+/* Cambiar el color del texto en los textarea cuando se escribe */
+.form-container textarea:focus,
+.form-container input:focus {
+    color: #fff; /* Texto blanco cuando está enfocado */
+    border-color: #f0a500; /* Cambia el color del borde al enfocar */
+}
+
+/* Asegurar que los inputs también tengan el mismo estilo */
+.form-container input,
+.form-container select {
+    background-color: #222; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    border: 1px solid #d4af37; /* Borde dorado */
+    padding: 8px;
+    font-size: 1em;
+}
+
+/* Cambiar el color del placeholder en los inputs */
+.form-container input::placeholder,
+.form-container select::placeholder {
+    color: #d4af37; /* Color dorado para el placeholder */
+    opacity: 1; /* Asegura que el color se aplique correctamente */
 }
 
 @media (max-width: 600px) {
