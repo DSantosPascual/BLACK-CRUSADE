@@ -8,17 +8,29 @@ const headerTemplate = () => {
     <link rel="stylesheet" href="/styles.css">
     <title>BLACK CRUSADE</title>
 </head>
+
 <body>
     <div id="background-container">
     <div id="contenido">
-    <header class="header"><h1><strong>BLACK CRUSADE</strong></h1></header>
-        <button class="botonInicio" onclick="irInicio()">INICIO</button>
+    <header class="header">
+        <h1><strong>BLACK CRUSADE</strong></h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/dashboard">INICIO</a></li>
+                <li><a href="/miniaturas">MINIATURAS</a></li>
+                <li><a href="/pinturas">PINTURAS</a></li>
+                <li><a href="/accesorios">ACCESORIOS</a></li>
+                <li><a href="/transporte">TRANSPORTE</a></li>
+                <li class="cart-icon">
+                    <a href="/carrito">
+                        <img class="cart-icon" src="/images/icons/carrito-de-compras.png" alt="Carrito" />
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
     <script src="/scripts/imagenesFondo.js"></script>
-    <script>
-        function irInicio() {
-            window.location.href = '/dashboard';
-        }
-    </script>
     `;
 };
 
