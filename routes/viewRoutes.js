@@ -4,6 +4,7 @@ const path = require ('path');
 const admin = require ('firebase-admin');
 const auth = admin.auth();
 const ProductControllers = require('../controllers/productController');
+const checkAuth = require('../middlewares/authMiddleware');
 
 
 router.get('/register', (req, res) =>{
@@ -47,11 +48,12 @@ router.post("/login", async (req, res)=>{
 // router.get('/dashboard', (req, res) =>{
 //     res.redirect('/dashboard')
 // });
-router.get('/dashboard', ProductControllers.showProducts);
+router.get('/dashboard', checkAuth, ProductControllers.showProducts);
 
 
 router.post('/logout', (req, res)=>{
-    res.sendFile(path.join(__dirname, '../public/views', 'logout.html'))
+    res.clearCookie('token')
+    res.redirect('/login')
 })
 
 module.exports = router;

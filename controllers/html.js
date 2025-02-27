@@ -67,6 +67,9 @@ let html = '';
             <div class="product">
                 <h2>${product.nombre}</h2>
                 <a href="/products/${product._id}">Ver detalle</a>
+                <form action ="/logout" method="post">
+                    <button type="submit">Logout</button>
+                </form>
             </div>
         `;
     }
