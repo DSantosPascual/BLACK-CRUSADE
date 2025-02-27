@@ -3,16 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
     <title>Login</title>
 </head>
+
 <body>
-    <h1>Estás logeado</h1>
-    <form id="loginForm">
-        <input type="email" name="email" id="email" placeholder="Introduce tu email" required>
-        <input type="password" name="password" id="password" placeholder="Introduce tu password" required>
-        <button type="submit" id="loginButton">Register</button>
-        <div id="mensaje"></div>
-    </form>
+    <div id="background-container">
+        <div id="contenido">
+            <header class="header">
+                <h1><strong>BLACK CRUSADE</strong></h1>
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="/dashboard">INICIO</a></li>
+                        <li><a href="/miniaturas">MINIATURAS</a></li>
+                        <li><a href="/pinturas">PINTURAS</a></li>
+                        <li><a href="/accesorios">ACCESORIOS</a></li>
+                        <li><a href="/transporte">TRANSPORTE</a></li>
+                        <li class="cart-icon">
+                            <a href="/carrito">
+                                <img class="cart-icon" src="/images/icons/carrito-de-compras.png" alt="Carrito" />
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div id="form-container">
+                    <h2>Te has registrado correctamente, por favor, introduce tus credenciales para acceder</h2>
+                    <form id="loginForm">
+                        <input type="email" name="email" id="email" placeholder="Introduce tu email" required>
+                        <input type="password" name="password" id="password" placeholder="Introduce tu contraseña" required>
+                        <button type="submit" class="login-button">Iniciar Sesión</button>
+                        <div id="mensaje"></div>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <footer>
+        <h3>2025</h3>
+        <p>👨‍💻 Adrián Garrido Luengo 👨‍💻 Adrián Pajuelo Momboisse 👨‍💻 Dámaso Adrián Santos Pascual</p>
+    </footer>
+
     <script type="module" src="../utils/configLogin.js"></script>
+    <script src="/scripts/imagenesFondo.js"></script>
 </body>
 </html>
