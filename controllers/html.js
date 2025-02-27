@@ -25,7 +25,7 @@ function productForm() {
         <label for="image">Imagen:</label>
         <input type="file" id="image" name="imagen" accept="image/*" required>
         
-        <button type="submit">Crear Producto</button>
+        <button type="submit" class="crear-button">Crear Producto</button>
         </div>
         </form>
         <script>
@@ -69,6 +69,9 @@ let html = '';
                 <a href="/products/${product._id}">Ver detalle</a>
                 <form action ="/logout" method="post">
                     <button type="submit" class="logout-button">Logout</button>
+                </form>
+                <form action ="dashboard/new" method="get">
+                    <button type="submit" class="new-product">Crear nuevo producto</button>
                 </form>
             </div>
         `;

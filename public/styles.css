@@ -36,7 +36,7 @@ body {
 }
 
 /* Botones generales */
-.botonInicio, .delete-btn, .edit-btn, .form-container, .login-button, .reg-button, .logout-button {
+.botonInicio, .delete-btn, .edit-btn, .form-container, .login-button, .reg-button, .logout-button, .crear-button, .new-product {
     margin-top: 20px;
     margin-left: 70px;
     background-color: #d4af37;
@@ -51,7 +51,7 @@ body {
     transition: transform 0.3s ease-in-out;
 }
 
-.botonInicio:hover, .delete-btn:hover, .edit-btn:hover, .reg-button:hover, .logout-button:hover, .login-button:hover, .form-container button:hover {
+.botonInicio:hover, .delete-btn:hover, .crear-button:hover, .edit-btn:hover, .new-product:hover, .reg-button:hover, .logout-button:hover, .login-button:hover, .form-container button:hover {
     transform: scale(1.1);
 }
 
@@ -103,7 +103,7 @@ header h1 {
 }
 
 /* Formulario */
-#form-container {
+#form-container, #createProductForm {
     position: relative;
     z-index: 1;
     color: #f0a500;
@@ -125,17 +125,38 @@ header h1 {
     font-size: 1em;
 }
 
+/* #createProductForm input, , #createProductForm textarea, , #createProductForm select {
+    background-color: #222;
+    color: #333;
+    border: 1px solid #d4af37;
+    padding: 8px;
+    font-size: 1em;
+} */
+
 #form-container input::placeholder, 
 #form-container textarea::placeholder, 
 #form-container select::placeholder {
     color: #d4af37;
 }
 
+/* #createProductForm input::placeholder,
+#createProductForm textarea::placeholder,
+#createProductForm select::placeholder {
+    color: #d4af37;
+} */
+
+
 #form-container input:focus, 
 #form-container textarea:focus, 
 #form-container select:focus {
     border-color: #f0a500;
 }
+
+/* #createProductForm input:focus,
+#createProductForm textarea:focus,
+#createProductForm select:focus {
+    border-color: #f0a500;
+} */
 
 input[type="file"] {
     background-color: #222;
