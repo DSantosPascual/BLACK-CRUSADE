@@ -21,7 +21,7 @@ body {
     height: 100vh;
     background-image: url("/imagenesFondo/img1.jpg"); 
     background-size: contain;
-    background-position: center;
+    background-position:center;
 }
 
 #background-container::after {
