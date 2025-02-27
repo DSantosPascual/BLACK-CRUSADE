@@ -26,7 +26,14 @@ const headerTemplate = () => {
                         <img class="cart-icon" src="/images/icons/carrito-de-compras.png" alt="Carrito" />
                     </a>
                 </li>
+                <li class="form-logout">
+                    <form action="/logout" method="post">
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
             </ul>
+                
+            <div>
         </nav>
     </header>
     
