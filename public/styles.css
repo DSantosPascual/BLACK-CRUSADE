@@ -117,7 +117,12 @@ header h1 {
     margin: auto;
 }
 
-#form-container input, #form-container textarea, #form-container select {
+#form-container input, 
+#form-container textarea, 
+#form-container select,
+#createProductForm input, 
+#createProductForm textarea, 
+#createProductForm select {
     background-color: #222;
     color: #fff;
     border: 1px solid #d4af37;
@@ -125,38 +130,23 @@ header h1 {
     font-size: 1em;
 }
 
-/* #createProductForm input, , #createProductForm textarea, , #createProductForm select {
-    background-color: #222;
-    color: #333;
-    border: 1px solid #d4af37;
-    padding: 8px;
-    font-size: 1em;
-} */
-
 #form-container input::placeholder, 
 #form-container textarea::placeholder, 
-#form-container select::placeholder {
-    color: #d4af37;
-}
-
-/* #createProductForm input::placeholder,
+#form-container select::placeholder,
+#createProductForm input::placeholder,
 #createProductForm textarea::placeholder,
 #createProductForm select::placeholder {
     color: #d4af37;
-} */
-
+}
 
 #form-container input:focus, 
 #form-container textarea:focus, 
-#form-container select:focus {
-    border-color: #f0a500;
-}
-
-/* #createProductForm input:focus,
+#form-container select:focus,
+#createProductForm input:focus,
 #createProductForm textarea:focus,
 #createProductForm select:focus {
     border-color: #f0a500;
-} */
+}
 
 input[type="file"] {
     background-color: #222;
