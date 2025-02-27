@@ -6,6 +6,9 @@ const headerTemplate = () => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar&display=swap" rel="stylesheet">
     <title>BLACK CRUSADE</title>
 </head>
 
@@ -27,10 +30,16 @@ const headerTemplate = () => {
                     </a>
                 </li>
                 <li>
+                    <form action="/dashboard/new" method="get">
+                        <button class="newProduct-button" type="submit">Crear nuevo producto</button>
+                    </form>
+                </li>
+                <li>
                     <form action="/logout" method="post">
                         <button class="logout-button" type="submit">Logout</button>
                     </form>
                 </li>
+                
             </ul>                                               
                 
             <div>
