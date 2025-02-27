@@ -36,7 +36,7 @@ body {
 }
 
 /* Botones generales */
-.botonInicio, .delete-btn, .edit-btn, .form-container button {
+.botonInicio, .delete-btn, .edit-btn, .form-container, .login-button, .reg-button, .logout-button {
     margin-top: 20px;
     margin-left: 70px;
     background-color: #d4af37;
@@ -51,7 +51,7 @@ body {
     transition: transform 0.3s ease-in-out;
 }
 
-.botonInicio:hover, .delete-btn:hover, .edit-btn:hover, .form-container button:hover {
+.botonInicio:hover, .delete-btn:hover, .edit-btn:hover, .reg-button:hover, .logout-button:hover, .login-button:hover, .form-container button:hover {
     transform: scale(1.1);
 }
 
