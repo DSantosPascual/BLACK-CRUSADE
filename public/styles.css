@@ -36,9 +36,23 @@ body {
 }
 
 /* Botones generales */
-.botonInicio, .delete-btn, .edit-btn, .form-container, .login-button, .reg-button, .logout-button, .crear-button, .new-product {
+.botonInicio, .delete-btn, .edit-btn, .form-container, .login-button, .reg-button, .crear-button, .new-product {
     margin-top: 20px;
     margin-left: 70px;
+    background-color: #d4af37;
+    color: #1d1f20;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logout-button {
+    margin-left: 35px;
     background-color: #d4af37;
     color: #1d1f20;
     font-size: 1.2em;
