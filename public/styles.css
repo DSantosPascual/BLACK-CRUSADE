@@ -269,6 +269,7 @@ a:hover {
     display: flex;
     align-items: center; 
     margin-left: 10px; 
+    pointer-events: none;
 }
 
 .cart-icon img {
@@ -332,14 +333,138 @@ a:hover {
     margin-top: 250px;
 }
 
-/* Media Queries */
+/* Media Query para Tablets (Pantallas medianas: 768px - 1024px) */
+@media (max-width: 1024px) {
+    .header h1 {
+        font-size: 50px;
+    }
+
+    .product {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .imagenProducto {
+        width: 90%;
+        height: auto;
+    }
+
+    .infoProduct {
+        text-align: center;
+        gap: 20px;
+    }
+
+    #form-container, #createProductForm {
+        width: 80%;
+    }
+
+    .botonInicio, .delete-btn, .edit-btn, .login-button, .reg-button, .crear-button, .new-product, .logout-button, .newProduct-button {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+}
+
+/* Media Query para Móviles (Pantallas menores a 600px) */
 @media (max-width: 600px) {
     header h1 {
         font-size: 2em;
     }
 
-    .homeBtn button {
-        font-size: 1em;
-        padding: 8px 16px;
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navbar a {
+        font-size: 1.1em;
+        padding: 8px 12px;
+    }
+
+    .product {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .imagenProducto {
+        width: 100%;
+        height: auto;
+    }
+
+    .infoProduct {
+        text-align: center;
+    }
+
+    .botonInicio, .delete-btn, .edit-btn, .login-button, .reg-button, .crear-button, .new-product, .logout-button, .newProduct-button {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+
+    #form-container, #createProductForm {
+        width: 95%;
+        padding: 15px;
+    }
+
+    footer {
+        font-size: 0.8em;
+        padding: 10px;
     }
 }
+
+/* Media Query para Móviles Pequeños (Menores a 480px) */
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 30px;
+        padding: 10px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .navbar a {
+        font-size: 1em;
+        padding: 6px 10px;
+    }
+
+    .product {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .imagenProducto {
+        width: 100%;
+        height: auto;
+    }
+
+    .infoProduct {
+        text-align: center;
+    }
+
+    .botonInicio, .delete-btn, .edit-btn, .login-button, .reg-button, .crear-button, .new-product, .logout-button, .newProduct-button {
+        font-size: 0.8em;
+        padding: 5px 10px;
+    }
+
+    #form-container, #createProductForm {
+        width: 100%;
+        padding: 10px;
+    }
+
+    footer {
+        font-size: 0.7em;
+        padding: 8px;
+    }
+}
+
+/* Ajustes Generales para Mejorar Responsividad */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    max-width: 100%;
+    text-align: center;
+}
+
