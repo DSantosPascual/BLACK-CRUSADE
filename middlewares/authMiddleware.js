@@ -4,6 +4,11 @@ const auth = admin.auth();
 
 const checkAuth = (req, res, next) => {
     const idTokenCookie = req.cookies.token;
+    const publicRoutes = ["/", "/login", "/register", "/category/:category"];
+
+    if (publicRoutes.includes(req.path)) {
+        return next();
+    }
 
     if (!idTokenCookie) {
         res.redirect('/login')
