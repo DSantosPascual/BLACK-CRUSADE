@@ -19,11 +19,12 @@ const headerTemplate = () => {
         <h1><strong>BLACK CRUSADE</strong></h1>
         <nav class="navbar">
             <ul>
-                <li><a href="/dashboard">INICIO</a></li>
-                <li><a href="/miniaturas">MINIATURAS</a></li>
-                <li><a href="/pinturas">PINTURAS</a></li>
-                <li><a href="/accesorios">ACCESORIOS</a></li>
-                <li><a href="/transporte">TRANSPORTE</a></li>
+                <li><a href="/inicio">INICIO</a></li>
+                <li><a href="/dashboard">TODOS LOS PRODUCTOS</a></li>
+                <li><a href="/category/Miniaturas">MINIATURAS</a></li>
+                <li><a href="/category/Pinturas">PINTURAS</a></li>
+                <li><a href="/category/Accesorios">ACCESORIOS</a></li>
+                <li><a href="/category/Transporte">TRANSPORTE</a></li>
                 <li class="cart-icon">
                     <a href="/carrito">
                         <img class="cart-icon" src="/images/icons/carrito-de-compras.png" alt="Carrito" />

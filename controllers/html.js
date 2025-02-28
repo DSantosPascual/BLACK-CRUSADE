@@ -142,6 +142,27 @@ let html = '';
         </form>
     `;
     };
+    function homePage() {
+        return `
+        <div class="introduccion">
+        <section style="text-align: center; padding: 50px;">
+            <h1>¡Bienvenidos a BLACK CRUSADE!</h1>
+            <p class="parrafo-inicio">Bienvenido a BLACK CRUSADE, tu tienda online especializada en el apasionante universo WARHAMMER.<br> 
+            Ofrecemos una amplia gama de productos para satisfacer las necesidades de coleccionistas y jugadores, desde miniaturas detalladas hasta pinturas de alta calidad, 
+            accesiorios indispensables y maletines de transporte.<br> Nuestro objetivo es proporcionarte todo lo necesario para que disfruters al máximo de tu hobby, 
+            ya sea que estés iniciándote en el mundo de WARHAMMER o busques expandir tu ejército con las últimas novedades en batallones y regimientos.<br> 
+            Explora nuestras categorías y descubre productos seleccionados para ayudarte a crear, personalizar y transportar tus miniaturas con facilidad y estilo.<br>
+            ¡Embárcate en tu próxima cruzada con nosotros y lleva tus batallas al siguiente nivel!</p>
+            <div class="categoriasInicio">
+                <a href="/category/Miniaturas" style="margin-right: 15px;">🖌 Miniaturas</a>
+                <a href="/category/Pinturas" style="margin-right: 15px;">🎨 Pinturas</a>
+                <a href="/category/Accesorios" style="margin-right: 15px;">🔧 Accesorios</a>
+                <a href="/category/Transporte">🚚 Transporte</a>
+            </div>
+        </section>
+        </div>
+        `
+    }
 
 
-module.exports = { getProduct, productForm, productId, editProduct };
+module.exports = { getProduct, productForm, productId, editProduct, homePage };

@@ -16,13 +16,17 @@ router.get('/products/:productId', ProductControllers.showProductById);
 router.delete('/dashboard/:productId/delete', ProductControllers.deleteProductById);
 router.get('/dashboard/:productId/edit', ProductControllers.showEditProduct);
 router.post('/dashboard/:productId', ProductControllers.updateProduct);
+router.get('/inicio', ProductControllers.showHome);
+router.get('/category/:category', ProductControllers.showCategory);
+
+
 
 
 
 
 module.exports = router;
 
-
+// router.get('/home', ProductControllers.showHome);
 /*
 router.get('/', productController.showProducts);
 router.get('/:productId', productController.showProductById);
