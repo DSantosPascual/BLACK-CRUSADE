@@ -16,7 +16,7 @@ const headerTemplate = () => {
     <div id="background-container">
     <div id="contenido">
     <header class="header">
-        <h1><strong>BLACK CRUSADE</strong></h1>
+        <h1><strong><a class="enlace-titulo" href="/inicio">BLACK CRUSADE</strong></h1>
         <nav class="navbar">
             <ul>
                 <li><a href="/inicio">INICIO</a></li>

@@ -300,6 +300,15 @@ a:hover {
     margin-top: 150px;
 }
 
+.enlace-titulo {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 60px;
+    color: #d4af37;
+    text-transform: uppercase;
+    margin: 0;
+    text-shadow: 4px 4px 6px rgba(194, 73, 16, 0.719);
+}
+
 /* Media Queries */
 @media (max-width: 600px) {
     header h1 {
