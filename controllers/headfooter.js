@@ -20,7 +20,7 @@ const headerTemplate = () => {
         <nav class="navbar">
             <ul>
                 <li><a href="/inicio">INICIO</a></li>
-                <li><a href="/dashboard">TODOS LOS PRODUCTOS</a></li>
+                <li><a href="/">TODOS LOS PRODUCTOS</a></li>
                 <li><a href="/category/Miniaturas">MINIATURAS</a></li>
                 <li><a href="/category/Pinturas">PINTURAS</a></li>
                 <li><a href="/category/Accesorios">ACCESORIOS</a></li>
