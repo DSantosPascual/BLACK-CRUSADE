@@ -86,7 +86,7 @@ body {
 
 header h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 3em;
+    font-size: 70px;
     color: #d4af37;
     text-transform: uppercase;
     margin: 0;
@@ -312,8 +312,24 @@ a:hover {
 }
 
 .tituloInicio {
+    
     text-shadow: 4px 4px 6px #18264d;
     font-size: 60px;
+}
+
+/* CATEGORIAS */
+
+.tituloCategoria {
+    color: #d4af37;
+    text-shadow: 4px 4px 6px #18264d;
+    font-size: 60px;
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+}
+
+.divCategoria {
+    margin-top: 250px;
 }
 
 /* Media Queries */
