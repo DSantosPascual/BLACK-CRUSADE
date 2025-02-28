@@ -75,6 +75,7 @@ body {
 
 /* Header */
 .header {
+    /* position: absolute; */
     position: fixed;
     top: 0;
     z-index: 1;  

@@ -1,1 +1,0 @@
-//lógica para el mercado de compraventa
