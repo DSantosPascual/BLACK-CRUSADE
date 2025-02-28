@@ -56,7 +56,7 @@ const ProductControllers = {
             const products = await Product.find({ categoria: category });
             const header = headerTemplate();
             const footer = footerTemplate();
-            const categorySection = `<h1>Productos en la categoría: ${category}</h1>`;
+            const categorySection = `<div class="divCategoria"><h1 class="tituloCategoria">Productos en la categoría: ${category}</h1></div>`;
             const productList = getProduct(products);
             const html = header + categorySection + productList + footer;
             res.send(html);

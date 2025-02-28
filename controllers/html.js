@@ -146,7 +146,7 @@ let html = '';
         return `
         <div class="introduccion">
         <section style="text-align: center; padding: 50px;">
-            <h1>¡Bienvenidos a BLACK CRUSADE!</h1>
+            <h1 class="tituloInicio">¡Bienvenidos a BLACK CRUSADE!</h1>
             <p class="parrafo-inicio">Bienvenido a BLACK CRUSADE, tu tienda online especializada en el apasionante universo WARHAMMER.<br> 
             Ofrecemos una amplia gama de productos para satisfacer las necesidades de coleccionistas y jugadores, desde miniaturas detalladas hasta pinturas de alta calidad, 
             accesiorios indispensables y maletines de transporte.<br> Nuestro objetivo es proporcionarte todo lo necesario para que disfruters al máximo de tu hobby, 
