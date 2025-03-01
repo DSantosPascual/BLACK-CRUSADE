@@ -22,6 +22,9 @@ app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ limit: '5mb', extended: true })); 
 app.use('/', require('./routes/authRoutes'));
 app.use('/', require('./routes/productRoutes'));
+app.use('/api', require('./routes/apiRoutes'));
+
+require('./swagger')(app);
 
 dbConnection();
 
