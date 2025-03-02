@@ -3,28 +3,27 @@ const admin = require('firebase-admin');
 const auth = admin.auth();
 
 const checkAuth = (req, res, next) => {
-    const idTokenCookie = req.cookies.token;
-    const publicRoutes = ["/", "/login", "/register", "/category/:category"];
+    // Cambiar la búsqueda del token a los encabezados
+    const idTokenHeader = req.headers['authorization'];
 
-    if (publicRoutes.includes(req.path)) {
-        return next();
+    // Si el token no está presente, redirigir al login
+    if (!idTokenHeader || !idTokenHeader.startsWith('Bearer ')) {
+        return res.redirect('/login');
     }
 
-    if (!idTokenCookie) {
-       return res.redirect('/login')
-    }
+    // Obtener el token desde el encabezado Authorization
+    const idToken = idTokenHeader.split('Bearer ')[1];
 
-    auth.verifyIdToken(idTokenCookie)
-    .then((decodedToken)=>{
-        req.user = decodedToken;
+    auth.verifyIdToken(idToken)
+    .then((decodedToken) => {
+        req.user = decodedToken; // Guardar los datos del usuario autenticado
         res.locals.user = decodedToken;
-        next()
+        next(); // Continuar con la siguiente función
     })
-    .catch((error)=>{
-            console.error(`Error al verificar el token de las cookies: ${error}`);
-            res.clearCookie('token');
-            return res.redirect('/login');
-    })
+    .catch((error) => {
+        console.error(`Error al verificar el token de Firebase: ${error}`);
+        return res.redirect('/login');
+    });
 }
 
 module.exports = checkAuth;
