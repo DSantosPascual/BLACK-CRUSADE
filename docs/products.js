@@ -1,7 +1,7 @@
 // docs/products.js
 module.exports = {
     paths: {
-      '/products': {
+      '/': {
         get: {
           summary: 'Obtener todos los productos',
           responses: {
@@ -17,7 +17,7 @@ module.exports = {
             content: {
               'application/json': {
                 schema: {
-                  $ref: '#/components/schemas/Product',
+                  $ref: '#/components/schemas/ProductInput',
                 },
               },
             },

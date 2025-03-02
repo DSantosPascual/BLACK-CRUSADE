@@ -10,7 +10,7 @@ const options = {
     components: components,
     paths: products.paths,
   },
-  apis: [], 
+  apis: ['../index.js'], 
 };
 
 const specs = swaggerJsdoc(options);

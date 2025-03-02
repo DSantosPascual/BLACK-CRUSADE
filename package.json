@@ -8,15 +8,14 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "npm-run-all --parallel start:app start:swagger",
-    "start:app": "node index.js",
-    "start:swagger": "node swagger.js"
+    "start": "node --watch index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cookie-parser": "1.4.7",
+    "cors": "^2.8.5",
     "dotenv": "16.4.7",
     "express": "4.21.2",
     "firebase": "11.3.1",
