@@ -11,16 +11,19 @@ const checkAuth = (req, res, next) => {
     }
 
     if (!idTokenCookie) {
-        res.redirect('/login')
+       return res.redirect('/login')
     }
 
     auth.verifyIdToken(idTokenCookie)
     .then((decodedToken)=>{
-        req.user = decodedToken
+        req.user = decodedToken;
+        res.locals.user = decodedToken;
         next()
     })
     .catch((error)=>{
-        console.log(`Error al verificar el token de las cookies: ${error}`);
+            console.error(`Error al verificar el token de las cookies: ${error}`);
+            res.clearCookie('token');
+            return res.redirect('/login');
     })
 }
 

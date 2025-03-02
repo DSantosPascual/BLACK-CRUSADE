@@ -9,6 +9,13 @@ router.post('/create', UserController.createUser);
 router.get('/login', UserController.loginUser);
 router.post('/login', UserController.logedUser);
 router.get('/dashboard', checkAuth, ProductControllers.showProducts);
-router.post('/logout', UserController.logout);
+router.get('/logout', UserController.logout);
+router.get('/api/user', checkAuth, (req, res) => {
+    if (req.user) {
+        res.json({ user: req.user });
+    } else {
+        res.json({ user: null });
+    }
+});
 
 module.exports = router;

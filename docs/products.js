@@ -1,7 +1,7 @@
 // docs/products.js
 module.exports = {
     paths: {
-      '/': {
+      '/products': {
         get: {
           summary: 'Obtener todos los productos',
           responses: {
@@ -10,6 +10,8 @@ module.exports = {
             },
           },
         },
+      },
+      '/dashboard':{
         post: {
           summary: 'Crear un nuevo producto',
           requestBody: {
@@ -30,6 +32,11 @@ module.exports = {
               $ref: '#/components/responses/ServerError',
             },
           },
+          security: [
+            {
+              FirebaseAuth:[]
+          }
+        ]
         },
       },
       '/products/{id}': {
@@ -38,7 +45,7 @@ module.exports = {
           parameters: [
             {
               in: 'path',
-              name: 'nombre',
+              name: 'id',
               required: true,
               schema: {
                 type: 'string',

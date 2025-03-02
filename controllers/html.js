@@ -30,12 +30,12 @@ function productForm() {
         </form>
         <script>
         document.getElementById("createProductForm").addEventListener("submit", async function(event) {
-        event.preventDefault();
+    event.preventDefault();
 
-        const formData = new FormData(this);
-        const file = formData.get("imagen");
+    const formData = new FormData(this);
+    const file = formData.get("imagen");
 
-        if (file && file.size > 0) {
+    if (file && file.size > 0) {
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = async function () {
@@ -47,33 +47,36 @@ function productForm() {
                 body: JSON.stringify(Object.fromEntries(formData))
             });
 
+            const data = await response.json();
+
             if (response.ok) {
-                window.location.href = "/dashboard";
+                window.location.href = data.redirectUrl;
             } else {
                 alert("Error al crear el producto.");
             }
         };
-        } else {
+    } else {
         alert("Debes subir una imagen.");
-        }
-        });
+    }
+});
         </script>`;   
 };
 
 function getProduct(products) {
-let html = '';
+    let html = '';
 
     for (let product of products) {
-        html += `
-            <div class="product">
-                <h2>${product.nombre}</h2>
-                <a href="/products/${product._id}">Ver detalle</a>
-            </div>
-        `;
+        {
+            html += `
+                <div class="product">
+                    <h2>${product.nombre}</h2>
+                    <a href="/products/${product._id}">Ver Detalles</a>
+                </div>
+            `;
+        }
     }
-
     return html;
-    };
+};
     function productId(product) {
         return `
             <div class="product">
@@ -85,10 +88,10 @@ let html = '';
                     <p>${product.descripcion}</p>
                     <p><strong>Precio:</strong> ${product.precio}€</p>
                     <p><strong>Categoría:</strong> ${product.categoria}</p>
-                  <div class="botones">
-                    <button class="edit-btn" onclick="window.location.href = '/dashboard/${product._id}/edit'">EDITAR</button>
-                    <button class="delete-btn" data-product-id="${product._id}">ELIMINAR</button>
-                  </div>
+                        <div class="botones">
+                          <button class="edit-btn" onclick="window.location.href = '/dashboard/${product._id}/edit'">EDITAR</button>
+                          <button class="delete-btn" data-product-id="${product._id}">ELIMINAR</button>
+                        </div>
               </div>
             </div>
             <script>
@@ -108,7 +111,7 @@ let html = '';
             });
             </script>
         `;
-    }
+    };
     function editProduct(product) {
         return `
         <form action="/dashboard/${product._id}" method="POST" id="form-container">  

@@ -1,6 +1,6 @@
 //Creamos el CRUD
 const Product = require('../models/Products');
-const {getProduct, productForm, productId, editProduct, homePage } = require('./html');
+const {getProduct, productForm, productId, editProduct, homePage} = require('./html');
 const fs = require('fs');
 const path = require('path');
 const {headerTemplate} = require('../controllers/headfooter');
@@ -97,7 +97,7 @@ const ProductControllers = {
             });
     
             await newProduct.save();
-            res.redirect("/dashboard");
+            res.json({ redirectUrl: `/dashboard/${newProduct._id}/edit` });
         } catch (error) {
             console.error(error);
             res.status(500).send("Error al crear el producto");
@@ -109,7 +109,7 @@ const ProductControllers = {
         const footer = footerTemplate();
         const html = header + productId(product) + footer;
         res.send(html);
-        },
+    },
     async showEditProduct (req, res) {
         const product = await Product.findById(req.params.productId);
         const header = headerTemplate();
@@ -154,15 +154,3 @@ const ProductControllers = {
 }
 
 module.exports = ProductControllers;
-
-/*async createProduct  (req, res)  {
-        const product = await Product.create({...req.body})
-        res.redirect('/dashboard');
-    },*/
-
-    // async showHomePage (req, res) {
-    //         const header = headerTemplate();
-    //         const footer = footerTemplate();
-    //         const html = header + "<h1>Bienvenido a la tienda</h1>" + footer;
-    //         res.send(html);
-    //     },

@@ -20,7 +20,7 @@ const headerTemplate = () => {
         <nav class="navbar">
             <ul>
                 <li><a href="/inicio">INICIO</a></li>
-                <li><a href="/">TODOS LOS PRODUCTOS</a></li>
+                <li><a href="/products">TODOS LOS PRODUCTOS</a></li>
                 <li><a href="/category/Miniaturas">MINIATURAS</a></li>
                 <li><a href="/category/Pinturas">PINTURAS</a></li>
                 <li><a href="/category/Accesorios">ACCESORIOS</a></li>
@@ -31,25 +31,40 @@ const headerTemplate = () => {
                     </a>
                 </li>
                 <li>
-                    <form action="/dashboard/new" method="get">
+                     <form action="/dashboard/new" method="get">
                         <button class="newProduct-button" type="submit">Crear nuevo producto</button>
-                    </form>
+                     </form>
                 </li>
                 <li>
-                    <form action="/logout" method="post">
-                        <button class="logout-button" type="submit">Logout</button>
-                    </form>
+                    <a id="auth-button" href="/login">Login</a>
                 </li>
-                
             </ul>                                               
-                
-            <div>
         </nav>
     </header>
-    
+
     <script src="/scripts/imagenesFondo.js"></script>
+    <script>
+        window.onload = () => {
+            fetch('/api/user')
+                .then(res => res.json())
+                .then(data => {
+                    const authButton = document.getElementById('auth-button');
+                    if (authButton) {
+                        if (data.user) {
+                            authButton.innerText = "Logout";
+                            authButton.href = "/logout";
+                        } else {
+                            authButton.innerText = "Login";
+                            authButton.href = "/login";
+                        }
+                    }
+                })
+                .catch(error => console.error('Error obteniendo el usuario:', error));
+        };
+    </script>
     `;
 };
+
 
 const footerTemplate = () => {
     return `

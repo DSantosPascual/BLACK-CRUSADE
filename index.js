@@ -11,7 +11,6 @@ require('dotenv').config();
 const swaggerUi = require('swagger-ui-express');
 const specs = require('./docs/index'); 
 
-const swaggerApp = express();
 
 // Inicializa Firebase Admin
 admin.initializeApp({
@@ -36,7 +35,7 @@ app.use(express.urlencoded({ limit: '5mb', extended: true }));
 // Rutas
 app.use('/', require('./routes/authRoutes'));
 app.use('/', require('./routes/productRoutes')); 
-swaggerApp.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // Conecta a la base de datos
 dbConnection();
@@ -44,11 +43,6 @@ dbConnection();
 // Inicia el servidor principal
 app.listen(PORT, () => console.log(`Server funcionando en el Puerto ${PORT}`));
 
-//Puerto Swagger
-const SWAGGER_PORT = 8000;
-swaggerApp.listen(SWAGGER_PORT, () => {
-  console.log(`Swagger UI está corriendo en http://localhost:${SWAGGER_PORT}/api-docs`);
-});
 
 module.exports = app;
 

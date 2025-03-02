@@ -23,6 +23,7 @@
     "mongodb": "6.13.0",
     "mongoose": "8.10.1",
     "projectbreak2": "file:",
+    "swagger": "^0.7.5",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
   },
