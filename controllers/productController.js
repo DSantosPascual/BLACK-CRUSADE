@@ -1,6 +1,6 @@
 //Creamos el CRUD
 const Product = require('../models/Products');
-const {getProduct, productForm, productId, editProduct } = require('./html');
+const {getProduct, productForm, productId, editProduct, homePage} = require('./html');
 const fs = require('fs');
 const path = require('path');
 const {headerTemplate} = require('../controllers/headfooter');
@@ -41,10 +41,31 @@ const ProductControllers = {
         const html = header + allProducts + footer;
         res.send(html);
     },
-    /*async createProduct  (req, res)  {
-        const product = await Product.create({...req.body})
-        res.redirect('/dashboard');
-    },*/
+    async showHome (req, res) {
+        const header = headerTemplate();
+        const footer = footerTemplate();
+        const homeContent = homePage();
+
+        const html = header + homeContent + footer;
+        res.send(html);
+    },
+    async showCategory (req, res) {
+        try {
+            const category = req.params.category;
+            const categoriasValidas = ['Miniaturas', 'Pinturas', 'Transporte', 'Accesorios'];
+            const products = await Product.find({ categoria: category });
+            const header = headerTemplate();
+            const footer = footerTemplate();
+            const categorySection = `<div class="divCategoria"><h1 class="tituloCategoria">Productos en la categoría: ${category}</h1></div>`;
+            const productList = getProduct(products);
+            const html = header + categorySection + productList + footer;
+            res.send(html);
+        } catch (error) {
+            console.error("Error al obtener productos por categoría:", error);
+            res.status(500).send("Error al cargar la categoría.");
+        }
+    },
+    
     async createProduct(req, res) {
         try {
             const { nombre, descripcion, precio, imagen, categoria } = req.body;
@@ -76,7 +97,7 @@ const ProductControllers = {
             });
     
             await newProduct.save();
-            res.redirect("/dashboard");
+            res.json({ redirectUrl: `/dashboard/${newProduct._id}/edit` });
         } catch (error) {
             console.error(error);
             res.status(500).send("Error al crear el producto");
@@ -88,7 +109,7 @@ const ProductControllers = {
         const footer = footerTemplate();
         const html = header + productId(product) + footer;
         res.send(html);
-        },
+    },
     async showEditProduct (req, res) {
         const product = await Product.findById(req.params.productId);
         const header = headerTemplate();

@@ -1,28 +1,49 @@
-//Montamos el servidor de Express
+// Montamos el servidor de Express
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const dbConnection = require('./config/config');
-//const router = require('../routes/productRoutes');
 const path = require('path');
 const admin = require('firebase-admin');
-const serviceAccount = require ('./config/firebase.json')
-// const serviceAccount = require ('./config/firebase')
+const serviceAccount = require('./config/firebase.json');
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
+const swaggerUi = require('swagger-ui-express');
+const specs = require('./docs/index'); 
 
+
+// Inicializa Firebase Admin
 admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
+  credential: admin.credential.cert(serviceAccount),
 });
 
 const PORT = 3000;
 
-app.use(express.static(path.join(__dirname, "public")));
-app.use(express.json({ limit: '5mb' }));
-app.use(express.urlencoded({ limit: '5mb', extended: true })); 
-app.use('/', require('./routes/viewRoutes'));
-app.use('/', require('./routes/productRoutes'));
+// Configura CORS
+app.use(cors({
+  origin: 'http://localhost:8000', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+  credentials: true, 
+}));
 
+// Middlewares
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json({ limit: '5mb' }));
+app.use(express.urlencoded({ limit: '5mb', extended: true }));
+
+// Rutas
+app.use('/', require('./routes/authRoutes'));
+app.use('/', require('./routes/productRoutes')); 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
+// Conecta a la base de datos
 dbConnection();
 
+// Inicia el servidor principal
 app.listen(PORT, () => console.log(`Server funcionando en el Puerto ${PORT}`));
 
+
 module.exports = app;
+
+

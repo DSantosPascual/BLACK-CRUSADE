@@ -3,15 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resgistro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Registro</title>
 </head>
+
 <body>
-    <h1>Register</h1>
-    <form action="/register" method="post">
-        <input type="email" name="email" id="email" placeholder="Introduce tu email" required>
-        <input type="password" name="password" id="password" placeholder="Introduce tu password" required>
-        <button type="submit">Register</button>
-    </form>
-    
+    <div id="background-container">
+        <div id="contenido">
+            <header class="header">
+                <h1><a class="enlace-titulo" href="/inicio"><strong>BLACK CRUSADE</strong></a></h1>
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="/inicio">INICIO</a></li>
+                        <li><a href="category/miniaturas">MINIATURAS</a></li>
+                        <li><a href="category/pinturas">PINTURAS</a></li>
+                        <li><a href="category/accesorios">ACCESORIOS</a></li>
+                        <li><a href="category/transporte">TRANSPORTE</a></li>
+                        <li class="cart-icon">
+                            <a href="/carrito">
+                                <img class="cart-icon" src="/images/icons/carrito-de-compras.png" alt="Carrito" />
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div id="form-container">
+                    <h2>Introduce tus datos para registrarte en nuestro sitio</h2>
+                    <form action="/register" method="post">
+                        <input type="email" name="email" id="email" placeholder="Introduce tu email" required>
+                        <input type="password" name="password" id="password" placeholder="Introduce tu contraseña" required>
+                        <button type="submit" class="reg-button">Registrarse</button>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <footer>
+        <h3>2025</h3>
+        <p>👨‍💻 Adrián Garrido Luengo 👨‍💻 Adrián Pajuelo Momboisse 👨‍💻 Dámaso Adrián Santos Pascual</p>
+    </footer>
+
+    <script src="/scripts/imagenesFondo.js"></script>
 </body>
 </html>
