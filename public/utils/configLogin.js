@@ -21,34 +21,40 @@ const auth = getAuth(app);
 
 const mensaje = document.getElementById('mensaje');
 const login = async (event) => {
-    event.preventDefault();
+    event.preventDefault(); // Evita que el formulario recargue la página
+
     try {
-        const email = document.getElementById("email").value
-        const password = document.getElementById("password").value
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
 
-        const userCredential = await signInWithEmailAndPassword(auth, email, password)
-        //const user = userCredential.user;
-        const idToken = await userCredential.user.getIdToken()
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
 
-        const response = await fetch("/login", {
+        const idToken = await user.getIdToken();
+
+        console.log("Token enviado al servidor:", idToken); 
+
+        const response = await fetch('/login', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({idToken})
-            
+            body: JSON.stringify({ idToken })
         });
-        const data = await response.json();
-        if(data.success) {
-            window.location.href = "/dashboard"
-        }else {
-            mensaje.textContent = "no se ha podido logear";
-        }
         
-    } catch (error) {
-        console.log(`no se ha podido logear ${error}`)
-    }
-}
+        console.log("Cuerpo de la solicitud enviado:", { idToken });
+        
 
-// document.getElementById('loginButton').addEventListener('click', login);
+        const data = await response.json();
+        if (data.success) {
+            window.location.href = "/dashboard";
+        } else {
+            console.error("Error en login:", data.message);
+        }
+
+    } catch (error) {
+        console.log(`No se ha podido hacer el login de usuario ${error}`);
+    }
+};
+
 document.getElementById('loginForm').addEventListener('submit', login);
