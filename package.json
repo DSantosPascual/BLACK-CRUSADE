@@ -8,7 +8,9 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "node --watch index.js"
+    "start": "npm-run-all --parallel start:app start:swagger",
+    "start:app": "node index.js",
+    "start:swagger": "node swagger.js"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +30,7 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "mongodb-memory-server": "^10.1.4",
+    "npm-run-all": "^4.1.5",
     "supertest": "^7.0.0"
   }
 }

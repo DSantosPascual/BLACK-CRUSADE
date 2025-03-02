@@ -24,7 +24,7 @@ app.use('/', require('./routes/authRoutes'));
 app.use('/', require('./routes/productRoutes'));
 app.use('/api', require('./routes/apiRoutes'));
 
-require('./swagger')(app);
+// require('./swagger')(app);
 
 dbConnection();
 
