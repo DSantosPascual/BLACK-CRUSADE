@@ -353,14 +353,36 @@ a:hover {
     margin-top: 250px;
 }
 
-/* Media Query para Tablets (Pantallas medianas: 768px - 1024px) */
-@media (max-width: 1024px) {
+/* Media Query para Pantallas Grandes (PC, Laptops, 1025px en adelante) */
+@media (min-width: 1025px) {
+    /* Ajustes específicos para pantallas grandes */
+    .header h1 {
+        font-size: 70px;
+    }
+
+    .product {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .imagenProducto {
+        width: 450px;
+        height: 500px;
+    }
+
+    #form-container, #createProductForm {
+        width: 50%;
+    }
+}
+
+/* Media Query para Tablets y Pantallas Medianas (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
     .header h1 {
         font-size: 50px;
     }
 
     .product {
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
     }
 
@@ -384,25 +406,31 @@ a:hover {
     }
 }
 
-/* Media Query para Móviles (Pantallas menores a 600px) */
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 2em;
+/* Media Query para Móviles (Pantallas menores a 768px) */
+@media (max-width: 767px) {
+    .header h1 {
+        font-size: 30px;
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 20px;
     }
 
     .navbar ul {
         flex-direction: column;
         gap: 10px;
+        padding: 10px 0;
     }
 
     .navbar a {
-        font-size: 1.1em;
+        font-size: 1em;
         padding: 8px 12px;
+        text-align: center;
     }
 
     .product {
         flex-direction: column;
         align-items: center;
+        gap: 20px;
     }
 
     .imagenProducto {
@@ -417,6 +445,7 @@ a:hover {
     .botonInicio, .delete-btn, .edit-btn, .login-button, .reg-button, .crear-button, .new-product, .logout-button, .newProduct-button {
         font-size: 0.9em;
         padding: 6px 12px;
+        margin: 10px 0;
     }
 
     #form-container, #createProductForm {
@@ -476,15 +505,3 @@ a:hover {
         padding: 8px;
     }
 }
-
-/* Ajustes Generales para Mejorar Responsividad */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-button {
-    max-width: 100%;
-    text-align: center;
-}
-

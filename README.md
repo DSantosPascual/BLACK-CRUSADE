@@ -76,8 +76,16 @@ El proyecto incluye pruebas automatizadas con **Jest** para garantizar la calida
 
 ### Ejecución de pruebas:
 Para ejecutar las pruebas, utiliza el siguiente comando:
-```bash
-npm test
+npm test 
+
+---
+
+## 🌐**Despliegue**
+El proyecto ha sido desplegado exitosamente en Render y está accesible en el siguiente enlace:
+
+URL de la aplicación: https://black-crusade.onrender.com
+
+
 
 ✍️ **Autores**
 👨‍💻 Adrián Garrido Luengo - [MajinDohko](https://github.com/MajinDohko)

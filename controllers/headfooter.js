@@ -16,10 +16,10 @@ const headerTemplate = () => {
     <div id="background-container">
     <div id="contenido">
     <header class="header">
-        <h1><strong><a class="enlace-titulo" href="/inicio">BLACK CRUSADE</strong></a></h1>
+        <h1><strong><a class="enlace-titulo" href="/">BLACK CRUSADE</strong></a></h1>
         <nav class="navbar">
             <ul>
-                <li><a href="/inicio">INICIO</a></li>
+                <li><a href="/">INICIO</a></li>
                 <li><a href="/products">TODOS LOS PRODUCTOS</a></li>
                 <li><a href="/category/Miniaturas">MINIATURAS</a></li>
                 <li><a href="/category/Pinturas">PINTURAS</a></li>
