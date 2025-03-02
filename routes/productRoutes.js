@@ -7,7 +7,7 @@ const checkAuth = require('../middlewares/authMiddleware');
 router.get('/products', ProductControllers.showProducts);
 router.get('/category/:category', ProductControllers.showCategory);
 router.get('/products/:productId', ProductControllers.showProductById);
-router.get('/inicio', ProductControllers.showHome);
+router.get('/', ProductControllers.showHome);
 
 // Rutas protegidas (requieren autenticación)
 router.get('/dashboard', checkAuth, ProductControllers.showProducts);
