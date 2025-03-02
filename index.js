@@ -5,7 +5,7 @@ const app = express();
 const dbConnection = require('./config/config');
 const path = require('path');
 const admin = require('firebase-admin');
-const serviceAccount = require('./config/firebase.json');
+const serviceAccount = require('./config/firebase.js');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 const swaggerUi = require('swagger-ui-express');
