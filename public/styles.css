@@ -408,13 +408,23 @@ a:hover {
 
 /* Media Query para Móviles (Pantallas menores a 768px) */
 @media (max-width: 767px) {
+    .header {
+        position: inherit;
+    }
     .header h1 {
+        
         font-size: 30px;
         padding: 10px;
         text-align: center;
         margin-bottom: 20px;
     }
+    #background-container {
+    margin-top: 0;
+}
+    .introduccion {
+        
 
+}
     .navbar ul {
         flex-direction: column;
         gap: 10px;
